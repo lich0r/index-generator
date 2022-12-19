@@ -1,0 +1,87 @@
+/* Base structure */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  font-size:62.5%;
+}
+/* End of Base structure */
+
+body{
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* main styles */
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+.container_text-areas{
+  display: flex;
+  gap: 2rem;
+
+  margin-bottom: 2rem;
+
+  height: 78vh;
+  width: 86vw;
+}
+
+.output-area{
+  position: relative;
+  width: 100%;
+}
+
+.output-area > button{
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+
+  border-radius: .6rem;
+  border: .2rem solid rgb(68, 159, 208);
+  background-color: rgba(68, 159, 208, 0.168);
+}
+
+.output-area > button:hover{
+  background-color: rgba(68, 159, 208, 0.516);
+}
+
+.container_text-areas textarea{
+  height: 100%;
+  width: 100%;
+  resize: none;
+}
+
+.container_button{
+  padding: 1.2rem 2rem;
+  border-radius: .6rem;
+  border: .2rem solid rgb(68, 159, 208);
+  background-color: rgba(68, 159, 208, 0.168);
+}
+
+.container_button:hover{
+  background-color: rgba(68, 159, 208, 0.516);
+}
+
+.notification{
+  position: absolute;
+  bottom: -2.5rem;
+  right: 0;
+
+  padding: .2rem;
+  width: max-content;
+  font-size: 1.4rem;
+}
