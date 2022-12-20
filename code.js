@@ -22,17 +22,22 @@ function main(e){
 
   for (const title of titlesIndexables) {
     const st = title.split(' ');
+    console.log("🚀 ~ file: code.js:25 ~ main ~ st", st[1])
     const currentNumOfHashtags = st[0].length;
+    console.log("🚀 ~ file: code.js:26 ~ main ~ currentNumOfHashtags", currentNumOfHashtags)
 
     if(currentNumOfHashtags > numOfHashtags){
+      console.log("🚀 ~ file: code.js:29 ~ main ~ currentNumOfHashtags > numOfHashtags")
       numOfTabs++
-      numOfHashtags = currentNumOfHashtags
-    }else if(currentNumOfHashtags < numOfHashtags){
+    }else if(currentNumOfHashtags === numOfHashtags - 1){
+      console.log("🚀 ~ file: code.js:32 ~ main ~ currentNumOfHashtags === numOfHashtags - 1")
       numOfTabs--
-      numOfHashtags = currentNumOfHashtags
+    }else if(currentNumOfHashtags != numOfHashtags){
+      console.log("🚀 ~ file: code.js:35 ~ main ~ else")
+      numOfTabs = currentNumOfHashtags - 2;
     }
 
-    if(currentNumOfHashtags == 2) numOfTabs = 0;
+    numOfHashtags = currentNumOfHashtags;
 
     const text = st.join(' ').slice(currentNumOfHashtags+1); /* slice(currentNumOfHashtags+1) remove the '#(...) ' */
     index = index + `${`  `.repeat(numOfTabs)}* [${text}](#${text.toLowerCase().replaceAll(/[^\w\s-áéúíóÑñ]/g,"").split(" ").join("-")})\n`;
