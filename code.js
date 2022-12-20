@@ -22,18 +22,16 @@ function main(e){
 
   for (const title of titlesIndexables) {
     const st = title.split(' ');
-    console.log("🚀 ~ file: code.js:25 ~ main ~ st", st[1])
     const currentNumOfHashtags = st[0].length;
-    console.log("🚀 ~ file: code.js:26 ~ main ~ currentNumOfHashtags", currentNumOfHashtags)
 
     if(currentNumOfHashtags > numOfHashtags){
-      console.log("🚀 ~ file: code.js:29 ~ main ~ currentNumOfHashtags > numOfHashtags")
+
       numOfTabs++
     }else if(currentNumOfHashtags === numOfHashtags - 1){
-      console.log("🚀 ~ file: code.js:32 ~ main ~ currentNumOfHashtags === numOfHashtags - 1")
+
       numOfTabs--
     }else if(currentNumOfHashtags != numOfHashtags){
-      console.log("🚀 ~ file: code.js:35 ~ main ~ else")
+
       numOfTabs = currentNumOfHashtags - 2;
     }
 
