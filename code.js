@@ -32,6 +32,8 @@ function main(e){
       numOfHashtags = currentNumOfHashtags
     }
 
+    if(currentNumOfHashtags == 2) numOfTabs = 0;
+
     const text = st.join(' ').slice(currentNumOfHashtags+1); /* slice(currentNumOfHashtags+1) remove the '#(...) ' */
     index = index + `${`  `.repeat(numOfTabs)}* [${text}](#${text.toLowerCase().replaceAll(/[^\w\s-áéúíóÑñ]/g,"").split(" ").join("-")})\n`;
   }
