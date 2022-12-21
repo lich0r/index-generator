@@ -24,21 +24,25 @@ function main(e){
     const st = title.split(' ');
     const currentNumOfHashtags = st[0].length;
 
-    if(currentNumOfHashtags > numOfHashtags){
+    
 
+    if(currentNumOfHashtags > numOfHashtags){
       numOfTabs++
     }else if(currentNumOfHashtags === numOfHashtags - 1){
-
       numOfTabs--
     }else if(currentNumOfHashtags != numOfHashtags){
-
       numOfTabs = currentNumOfHashtags - 2;
     }
 
     numOfHashtags = currentNumOfHashtags;
 
-    const text = st.join(' ').slice(currentNumOfHashtags+1); /* slice(currentNumOfHashtags+1) remove the '#(...) ' */
-    index = index + `${`  `.repeat(numOfTabs)}* [${text}](#${text.toLowerCase().replaceAll(/[^\w\s-áéúíóÑñ]/g,"").split(" ").join("-")})\n`;
+    const str = st.join(' ').slice(currentNumOfHashtags+1); /* slice(currentNumOfHashtags+1) remove the '#(...) ' */
+    let id = str.toLowerCase().replaceAll(/[^\w\s-áéúíóÑñ]/g,"").split(" ").join("-");
+    if(index.includes(id)){
+      let finalNumber = index.match(new RegExp(id)).length.toString();
+      id = `${id}-${finalNumber}`;
+    }
+    index = index + `${`  `.repeat(numOfTabs)}* [${str}](#${id})\n`;
   }
   
   output.value = index
