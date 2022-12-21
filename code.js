@@ -38,14 +38,15 @@ function main(e){
 
     const str = st.join(' ').slice(currentNumOfHashtags+1); /* slice(currentNumOfHashtags+1) remove the '#(...) ' */
     let id = str.toLowerCase().replaceAll(/[^\w\s-áéúíóÑñ]/g,"").split(" ").join("-");
-    if(index.includes(id)){
-      let finalNumber = index.match(new RegExp(id)).length.toString();
+    if(index.includes(`(#${id})`)){
+      let finalNumber = index.match(new RegExp(`(#${id})`)).length.toString() - 1;
+      console.log(finalNumber);
       id = `${id}-${finalNumber}`;
     }
     index = index + `${`  `.repeat(numOfTabs)}* [${str}](#${id})\n`;
   }
   
-  output.value = index
+  output.value = index;
 }
 
 clipboard_button.addEventListener('click', outputToClipboard);
