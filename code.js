@@ -858,8 +858,8 @@ CREATE TABLE denuncias (
 `
 
 const filters_button = document.getElementById('apply-filters-button');
-const title_filters = document.getElementById('filter-titles').value;
-const hashtag_filters = document.getElementById('filter-hashtags').value;
+const title_filtersElement = document.querySelector('input#filter-titles');
+const hashtag_filtersElement = document.querySelector('input#filter-hashtags');
 
 const clipboard_button = document.getElementById('output-to-clipboard');
 
@@ -868,6 +868,16 @@ button.addEventListener('click', main);
 filters_button.addEventListener('click', applyFilters)
 
 function applyFilters (e){
+  const title_filters = title_filtersElement.value.split(",");
+  const hashtag_filters = hashtag_filtersElement.value.split(",");
+
+  for(const filter of hashtag_filters){
+    hashtagFilter.push(filter.length);
+  }
+
+  for(const filter of title_filters){
+    contentFilter.push(filter);
+  }
 }
 
 function main(e){
